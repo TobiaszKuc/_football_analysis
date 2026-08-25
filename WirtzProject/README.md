@@ -1,4 +1,4 @@
-# Florian Wirtz — Bayer Leverkusen 2023/24 Analysis
+# Florian Wirtz - Bayer Leverkusen 2023/24 Analysis
 
 A Python-based football data analysis project investigating Florian Wirtz's influence on Bayer Leverkusen during the 2023/24 Bundesliga season.
 
