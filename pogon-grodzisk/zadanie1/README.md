@@ -26,8 +26,11 @@ Dodatkowo weryfikowałem po `match_id`, czy to na pewno jeden mecz.
 
 ## Wyniki i ich ograniczenia
 ![Różnica xG w zależności od stanu meczu](images/roznica_xg.png)
+
 Remis: -0.444653
+
 Pogoń przegrywa: -0.152081
+
 Pogoń wygrywa: 0.270911
 
 Ograniczenia: stan w którym Pogoń wygrywała bądź przegrywała był na tyle krótki, że oddane zostały w sumie kolejno 4 oraz 3 strzały, więc wnioski przez tak małą próbę należy traktować orientacyjnie. Z kolei w stanie remisu zostało oddane w sumie 27 strzałów, co wynika z tego, że okres ten trwał najdłużej.
