@@ -1,6 +1,6 @@
 # Zadanie 2 - analiza potencjalnego wahadłowego na podstawie danych StatsBomb 
 
-Odpowiedź opisuje sposób podejścia do próby odpowiedzi na pytanie badawcze, podkreślając jednak ograniczenia związane z analizą na podstawie samych danych eventowych. Dodatkowo chcę zaznaczyć, że jest to praca w całości koncepcyjna, opierająca się na mojej wiedzy dotyczącej zawartości danych StatsBomb.
+Odpowiedź opisuje sposób podejścia do posłużenia się danymi Statsbomb w celu oceny zawodnika X, podkreślając jednak ograniczenia związane z analizą na podstawie samych danych eventowych. Dodatkowo chcę zaznaczyć, że jest to praca w całości koncepcyjna, opierająca się na mojej wiedzy dotyczącej zawartości danych StatsBomb.
 
 ## Definicja roli wahadłowego
 
