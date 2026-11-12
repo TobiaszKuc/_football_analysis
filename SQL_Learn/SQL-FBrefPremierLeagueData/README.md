@@ -3,7 +3,7 @@
 ## Research question
 Which players over- and underperform their non-penalty expected goals (npxG), and is playing time related to the result?
 
-I rank players within their **club + position group**, so that I can answer a sporting director's question: "Which of my players finish better or worse than their chances suggest, compared with teammates in the same position?" I also calculate the correlation between playing time and non-penalty goals per 90 minus npxG per 90 (npG/90 − npxG/90, `g_xg_diff` in the notebook).
+I rank players within their **club + position group**, so that I can answer a sporting director's question: "Which of my players finish better or worse than their chances suggest, compared with teammates in the same position?" I also calculate the correlation between playing time and non-penalty goals per 90 minus npxG per 90 (npG/90 - npxG/90, `g_xg_diff` in the notebook).
 
 **Tools:** Python, pandas, SQLite (CTEs, window functions: `RANK() OVER`, `COUNT() OVER`, `AVG() OVER`), matplotlib.
 
@@ -14,7 +14,7 @@ The full analysis is in [`PLxGPerformance.ipynb`](PLxGPerformance.ipynb).
 
 I cleaned the data with Excel's Power Query for an earlier project (a Power BI dashboard). The notebook uses 3 of the workbook's 17 sheets: Player Standard Stats (493 players), Player Positions (617 rows, as some players have two positions assigned) and Squad Standard Stats (20 clubs).
 
-**The data files are not included in this repository.** FBref's advanced data, including xG, was supplied by Opta, and some of Sports Reference's data licences do not allow redistribution. On 20 January 2026, FBref removed this data from the site at Opta's request; my dataset was downloaded before that date. As a result, the notebook cannot be re-run without the data file, but all results are visible in its saved outputs.
+**The data files are not included in this repository.** FBref's advanced data, including xG, was supplied by Opta, and some of Sports Reference's data licences do not allow redistribution. On 20 January 2026, FBref removed this data from the site at Opta's request. My dataset was downloaded before that date. As a result, the notebook cannot be re-run without the data file, but all results are visible in its saved outputs.
 
 ## Method and filters
 
@@ -26,7 +26,7 @@ I cleaned the data with Excel's Power Query for an earlier project (a Power BI d
 | npxG ≥ 1 | 33 of 60 club + position groups remain | Balances noise against the number of comparable groups. A judgement call based on 20 matchweeks (see the table below). |
 | Groups of at least 3 players | | With one player a ranking says nothing; with two it is a head-to-head, not a position within a group. |
 | Defenders excluded | Only 4 of 20 defender groups would remain | Most defenders fall below npxG 1, and shooting is not their primary role, so over half a season this metric says little about them. |
-| Ranking | `RANK()` by npG/90 − npxG/90 within each club + position group | `RANK` rather than `DENSE_RANK`: the number shows how many teammates are ranked higher, and ties are real because FBref rounds per-90 values to two decimals. |
+| Ranking | `RANK()` by npG/90 - npxG/90 within each club + position group | `RANK` rather than `DENSE_RANK`: the number shows how many teammates are ranked higher, and ties are real because FBref rounds per-90 values to two decimals. |
 | **Result** | **117 players (71 FW, 46 MF)** | |
 
 **Club + position groups with at least 3 players, by npxG threshold:**
@@ -50,13 +50,13 @@ Most of the extreme values come with low npxG, and most defenders fall below npx
 
 ## Results
 - **Biggest overperformers:** Eli Junior Kroupi (+0.54, npxG 3.5) and Samuel Chukwueze (+0.22, npxG 1.0).
-- **Biggest underperformers:** Justin Devenny (−0.32, npxG 1.8) and David Brooks (−0.31, npxG 4.3).
+- **Biggest underperformers:** Justin Devenny (-0.32, npxG 1.8) and David Brooks (-0.31, npxG 4.3).
 - **Extreme values need caution:** Kroupi passes every filter, yet his per-90 overperformance is almost seven times Haaland's, even though Haaland has nearly five times his npxG. Kroupi's figure may reflect a hot streak rather than finishing skill, and Chukwueze sits exactly at the npxG threshold.
-- **Playing time:** the correlation between minutes played and npG/90 − npxG/90 is very weak (r ≈ 0.10, all 372 players above 300 minutes), so playing time has almost no relationship with whether a player finishes above or below his npxG. The Pearson correlation is calculated by hand in SQL and checked against pandas `.corr()`.
+- **Playing time:** the correlation between minutes played and npG/90 - npxG/90 is very weak (r ≈ 0.10, all 372 players above 300 minutes), so playing time has almost no relationship with whether a player finishes above or below his npxG. The Pearson correlation is calculated by hand in SQL and checked against pandas `.corr()`.
 
 ## Limitations
 - **Half a season:** 20 matchweeks are not enough to separate finishing skill from variance.
-- **The minutes threshold does not guarantee enough chances.** It shows that a player has played enough to be counted, not that he had enough shots for a reliable npG − npxG. The dataset contains no shot counts.
+- **The minutes threshold does not guarantee enough chances.** It shows that a player has played enough to be counted, not that he had enough shots for a reliable npG - npxG. The dataset contains no shot counts.
 - **Thresholds are judgement calls:** both 300 minutes and npxG ≥ 1 are reasoned choices, not statistically derived values.
 - **Primary position:** taken as the first position listed by FBref, which is an assumption, not a documented rule.
 - **Rounding:** FBref rounds per-90 values to two decimals, which creates ties in the ranking.
